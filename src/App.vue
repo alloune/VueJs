@@ -2,17 +2,17 @@
 
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <helloWorld msg="Test de l'utilisation d'un props en plus"/>
+    <CitiesList />
   </div>
 </template>
 
 <script>
 
-import helloWorld from "@/components/HelloWorld";
+import CitiesList from "@/components/CitiesList";
 export default {
   name: 'App',
   components: {
-    helloWorld,
+    CitiesList,
   }
 }
 
