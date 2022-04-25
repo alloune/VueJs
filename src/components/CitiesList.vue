@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <h1>{{ msg }}</h1>
     <li v-for="city in cities" :key="city.id">
       <CityWeather :name="city.name" :weather="city.weather" :temperature="city.temperature" :updatedAt="city.updatedAt"/>
     </li>
@@ -15,7 +16,7 @@ export default {
   name: 'CitiesList',
   components: {CityWeather},
   props: {
-
+  msg:String,
   },
   data() {
     return {
