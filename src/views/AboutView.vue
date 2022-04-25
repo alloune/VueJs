@@ -5,6 +5,7 @@
   </div>
 </template>
 <script>
+
 import CitiesList from "@/components/CitiesList";
 
 export default {
@@ -13,4 +14,5 @@ export default {
     CitiesList,
   }
 }
+
 </script>

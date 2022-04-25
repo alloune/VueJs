@@ -17,11 +17,29 @@ export default {
     name:String,
     weather:String,
     temperature:Number,
-    updatedAt:Date,
+    updatedAt:Number,
+    icone:String
+
+  },
+  methods:{
+    stringToDate(timestamp){
+
+      let date = new Date(timestamp * 1000);
+      // let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      // let year = date.getFullYear();
+      // let month = months[date.getMonth()];
+      // let date1 = date.getDate();
+      // let hour = date.getHours();
+      // let min = date.getMinutes();
+      // let sec = date.getSeconds();
+      // let time = date1 + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+      return date;
+
+    }
   },
   computed:{
     formatedDate: function () {
-      return format(this.updatedAt, 'fr_FR', {relativeDate:"2022-4-26"})
+      return format(this.stringToDate(this.updatedAt))
     }
   }
 }

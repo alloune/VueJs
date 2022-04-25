@@ -1,8 +1,9 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <li v-for="city in cities" :key="city.id">
-      <CityWeather :name="city.name" :weather="city.weather" :temperature="city.temperature" :updatedAt="city.updatedAt"/>
+    <li v-for="city in info.data.list" :key="city.id">
+            <CityWeather :name="city.name" :weather="city.weather[0].description" :temperature="city.main.temp"
+                   :updatedAt="city.dt" :icone="city.weather[0].icon"/>
     </li>
 
   </div>
@@ -10,34 +11,23 @@
 
 <script>
 
+const axios = require('axios').default;
+
 import CityWeather from "@/components/City";
 
 export default {
   name: 'CitiesList',
   components: {CityWeather},
   props: {
-  msg:String,
+    msg: String,
   },
   data() {
     return {
-      cities: [
-        {
-          id: 1,
-          name: 'Grenoble',
-          weather: 'Ensoleillé',
-          temperature: 22.0,
-          updatedAt: new Date()
-        },
-        {
-          id: 2,
-          name: 'Montpellier',
-          weather: 'Peu nuageux',
-          temperature: 19.5,
-          updatedAt: new Date()
-        }
-      ]
-
+      info: null
     }
+  },
+  mounted() {
+    axios.get('https://api.openweathermap.org/data/2.5/find?lat=45.188&lon=5.724&cnt=20&cluster=yes&lang=fr&units=metric&APPID=0506069a027cb95323bf9f08f15feb11').then(response => this.info = response)
   }
 }
 
