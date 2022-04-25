@@ -1,19 +1,21 @@
 <template>
+
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <helloWorld msg="Test de l'utilisation d'un props en plus"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+import helloWorld from "@/components/HelloWorld";
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    helloWorld,
   }
 }
+
 </script>
 
 <style>
